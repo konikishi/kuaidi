@@ -1,0 +1,87 @@
+page{
+  background: #efefef;
+}
+.shiming {
+  font-size: 32rpx;
+  padding: 20rpx 25rpx;
+  color: #999;
+}
+
+/*信息*/
+.xing {
+  font-family: "微软雅黑", "黑体";
+  height: 54rpx;
+  width: 579rpx;
+  border-radius: 10rpx;
+  background: #fff;
+  margin: 0 auto;
+  text-align: left;
+  line-height: 54rpx;
+  font-size: 28rpx;
+  padding: 10rpx;
+  margin-top: 38rpx;
+  padding-left: 30rpx;
+}
+
+.reg{
+  height:30rpx;
+  width: 579rpx;
+  margin: 0 auto;
+  color: #d9002f;
+  font-size: 24rpx;
+}
+
+.placeholder {
+  color: #ccc;
+  font-size: 26rpx;
+}
+
+.in {
+  float: right;
+  width: 70%;
+  padding-top: 0rpx;
+  font-size: 28rpx;
+  color: #000;
+}
+
+button[type="primary"] {
+  color: #000;
+  background-color: #fff;
+}
+
+.shenfen {
+  width: 600rpx;
+  margin: 0 auto;
+  padding: 20rpx 40rpx;
+  margin-top: 30rpx;
+}
+
+.shenfen1 {
+  width: 600rpx;
+  padding-bottom: 10rpx;
+  font-size: 32rpx;
+}
+
+.cl_img {
+  width: 600rpx;
+  height: 350rpx;
+  margin: 0 auto;
+  background: white;
+  display: block;
+  text-align: center;
+}
+
+.hh {
+  position: relative;
+  top: -220rpx;
+  right: -10rpx;
+  font-size: 30rpx;
+  color: #58ACFA;
+  font-weight: 500;
+  transform: rotate(-40deg);
+  letter-spacing: 20rpx;
+}
+.su{
+  background: #58ACFA;
+  color: white;
+}

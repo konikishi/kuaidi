@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "抢单中心",
+  "navigationBarBackgroundColor": "#58ACFA",
+  "usingComponents": {
+    "van-cell": "../../dist/cell/index",
+    "van-cell-group": "../../dist/cell-group/index",
+    "van-collapse": "../../dist/collapse/index",
+    "van-collapse-item": "../../dist/collapse-item/index",
+    "van-button": "../../dist/button/index"
+  }
+}

@@ -1,0 +1,10 @@
+<!--miniprogram/pages/about/about.wxml-->
+<view class="page">
+	<view class="page_hd">
+		<view class="title">欢迎使用快递助手</view>
+    <view class="version">版本：1.01</view>
+	</view>
+	<view class="page_hd">
+
+	</view>
+</view>

@@ -1,0 +1,37 @@
+<wxs src="../../utils/subutil.wxs" module="tools" />
+<view class="page">
+<!-- 审核通过显示 -->
+<block wx:if="{{verified}}">
+  <view class="icon">
+    <view class="m0a">
+      <image src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/审核通过.png" style="width:100rpx;height:100rpx"></image>
+    </view>
+    <view class="m0a">审核通过</view>
+  </view>
+  <van-cell-group>
+    <van-cell title="姓名：" value="{{name}}" />
+    <van-cell title="身份证号：" value="{{tools.sub(id, 4, 4)}}" />   
+    <van-cell title="手机号：" value="{{tools.sub(tel, 3, 4)}}" />
+  </van-cell-group>
+</block>
+<!-- 审核中显示 -->
+<block wx:elif="{{checking}}">
+  <view class="icon">
+    <view class="m0a">
+      <image src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/审核中.png" style="width:150rpx;height:150rpx"></image>
+    </view>
+    <view class="text">您的申请已提交，请耐心等待结果</view>
+  </view>
+</block>
+<!-- 审核失败显示 -->
+<block wx:else>
+  <view class="icon">
+    <view class="m0a">
+      <image src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/审核不通过.png" style="width:150rpx;height:150rpx"></image>
+    </view>
+    <view class="text">审核失败</view>
+    <view class="reason">理由：{{reason}}</view>
+    <button bindtap="goto">重新审核</button>
+  </view>
+</block>
+</view>

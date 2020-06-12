@@ -1,0 +1,30 @@
+<!--miniprogram/pages/my/my.wxml-->
+<view class="page">
+	<view class="page_hd">
+		<!--头像、昵称-->
+		<view class="userinfo">
+			<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		</view>
+	</view>
+
+	<view class="page_bd">
+		<!-- 个人中心列表 -->
+		<van-cell-group custom-class="mar-top">
+			<van-cell title="实名认证" is-link icon="contact" bind:click="getUrl" size="large" />
+			<van-cell title="订单列表" is-link icon="description" link-type="navigateTo" url="../order/order" size="large" />
+			<van-cell title="地址管理" is-link icon="location-o" bind:click="chooseAddress" size="large" />
+		</van-cell-group>
+
+    <van-cell-group custom-class="mar-top">
+			<van-cell is-link icon="service-o" size="large">
+				<view slot="title">
+					<button open-type="contact" class="contact">联系客服</button>
+				</view>
+			</van-cell>
+			<van-cell title="管理员入口" is-link icon="completed" ink-type="navigateTo" url="../check/check" size="large" />
+			<van-cell title="设置" is-link icon="setting-o" bind:click="authSetting" size="large" />
+      <van-cell title="关于" is-link icon="info-o" ink-type="navigateTo" url="../about/about" size="large" />
+		</van-cell-group>
+	</view>
+</view>

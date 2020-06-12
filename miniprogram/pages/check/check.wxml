@@ -1,0 +1,32 @@
+<!--miniprogram/pages/check/check.wxml-->
+<view class="page">
+	<view class="page_hd">
+		<block wx:if="{{infoArray==''}}">
+			<view class="title">当前没有待审核名单</view>
+		</block>
+		<block wx:else>
+			<view class="m0a">
+				<view class="title mar-top">待审核名单</view>
+				<van-collapse value="{{ activeName }}" bind:change="onChange" accordion custom-class="mar-top">
+					<view wx:for="{{infoArray}}" wx:key="*this">
+						<van-collapse-item title="姓名：{{item.name}}" name="{{index+1}}">
+							<van-cell title="身份证号：" value="{{item.id}}" title-width="25%" />
+							<van-cell title="手机号：" value="{{item.tel}}" />
+							<van-cell title="openid：" value="{{item.rider_id}}" title-width="20%" />
+							<van-cell title="身份证照：" />
+							<image src="{{item.idc_face}}" mode="aspectFit"></image>
+							<image src="{{item.idc_back}}" mode="aspectFit"></image>
+							<view class="button">
+								<button class="true" size="mini" bindtap="tongguo" data-id="{{item._id}}">通过</button>
+								<button class="false" type="warn" size="mini" data-id="{{item._id}}" bindtap="jujue">拒绝</button>
+							</view>
+						</van-collapse-item>
+					</view>
+				</van-collapse>
+			</view>
+		</block>
+	</view>
+	<view class="page_bd">
+
+	</view>
+</view>

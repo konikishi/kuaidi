@@ -1,0 +1,19 @@
+/* miniprogram/pages/rider_order/rider_order.wxss */
+page{
+  background-color: #e8e8e8;
+}
+.page {
+  width: 96%;
+  margin: 0 auto;
+}
+.mar-top{
+  margin-top: 20rpx;
+}
+.hd_pj{
+  width: 100%;
+  background-color: #fff;
+}
+.rate{
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}

@@ -1,0 +1,75 @@
+<!--miniprogram/pages/my_order.wxml-->
+<view class="page">
+	<view class="page__hd">
+		<van-cell-group custom-class="mar-top">
+			<van-cell title="订单状态：" value="{{order_status[info.order_status]}}" />
+			<!-- 订单状态未接单显示 -->
+			<block wx:if="{{info.order_status==0}}">
+				<view class="hd_button">
+					<van-button color="#58ACFA" size="mini" plain custom-class="button" bind:click="cancel">取消订单</van-button>
+				</view>
+			</block>
+			<!-- 订单状态未完成显示 -->
+			<block wx:elif="{{info.order_status==1}}">
+				<view class="hd_button">
+					<van-button color="#58ACFA" size="mini" plain custom-class="button" bind:click="confirm">确认收货</van-button>
+				</view>
+			</block>
+			<!-- 订单状态已完成显示 -->
+			<block wx:elif="{{info.order_status==2}}">
+			  <!-- 未评分显示 -->
+				<block wx:if="{{info.rate==0}}">
+					<view class="hd_button" hidden="{{pj}}">
+						<van-button color="#58ACFA" size="mini" plain custom-class="button" bind:click="pingjia">我要评价</van-button>
+					</view>
+					<view class="hd_pj" hidden="{{!pj}}">
+						<van-rate value="{{rate_value}}" bind:change="rateChange" color="#58ACFA" custom-class="rate" />
+						<van-field value="{{assess_value}}" label="评价:" type="textarea" placeholder="请输入评价内容" autosize border="{{false}}" title-width="15%" bind:change="assessChange" use-button-slot>
+							<van-button slot="button" color="#58ACFA" size="mini" bind:click="tijiao">提交</van-button>
+						</van-field>
+					</view>
+				</block>
+				<!-- 已评分显示 -->
+				<block wx:else>
+					<view class="hd_pj">
+						<van-rate value="{{info.rate}}" color="#58ACFA" custom-class="rate" readonly />
+						<van-field value="{{info.assess}}" label="评价:" type="textarea" autosize border="{{false}}" title-width="15%" readonly />
+					</view>
+				</block>
+			</block>
+			<block wx:else></block>
+		</van-cell-group>
+	</view>
+  
+	<!-- 取件人信息 -->
+	<view class="page__bd">
+		<block wx:if="{{info.order_status==1||info.order_status==2}}">
+			<van-cell-group custom-class="mar-top">
+				<van-cell title=" 取件人:" value="{{rider_name}},{{rider_tel}}" />
+			</van-cell-group>
+		</block>
+
+		<van-cell-group custom-class="mar-top">
+			<van-cell title="包裹件数:" value="{{info.num}} 件" />
+			<van-cell title="总价:" value="¥ {{info.price}}" />
+			<van-cell title="送达时间:" value="{{info.delivery_time}}" />
+			<van-cell title="备注:" value="{{info.remarks}}" />
+		</van-cell-group>
+    
+		<!-- 取件码展示 -->
+		<van-collapse value="{{ activeName }}" bind:change="onChange" accordion custom-class="mar-top">
+			<view wx:for="{{info.message}}" wx:key="*this">
+				<van-collapse-item title="取件码{{index+1}}" name="{{index+1}}">
+					{{item.data}}
+				</van-collapse-item>
+			</view>
+		</van-collapse>
+
+		<van-cell-group custom-class="mar-top">
+			<van-cell title="联系人：" value="{{info.contact}}" />
+			<van-cell title="收货地址：" value="{{info.address}}" title-width="25%" />
+			<van-cell title="订单ID：" value="{{info._id}}" title-width="20%" />
+			<van-cell title="订单时间：" value="{{info.order_time}}" />
+		</van-cell-group>
+	</view>
+</view>

@@ -1,0 +1,91 @@
+<!--pages/order/order.wxml-->
+<view class="page">
+	<van-tabs bind:click="onClick" color="#58ACFA" sticky>
+		<van-tab title="我的订单" name="a">
+			<block wx:for="{{my_order}}" wx:key="*this">
+				<navigator url="../my_order/my_order?id={{item._id}}">
+					<view class='order_card'>
+						<view class="card_hd">
+							<view class="left a_hd_left">取件短信：</view>
+							<view class="right a_hd_right">{{order_status[item.order_status]}}</view>
+						</view>
+						<view style="clear:both"></view>
+						<view class="card_bd">
+							<view class="left a_bd_left">
+								<text class="a_text">{{item.message[0].data}}</text>
+							</view>
+							<view class="right a_bd_right">{{item.num}}件</view>
+						</view>
+						<view class="card_ft">
+							<view class="left a_ft_left">
+								<image src="../../images/时间.png" class="a_ft_left_img"></image>
+								<view class="a_ft_left_time">{{item.order_time}}</view>
+							</view>
+							<view class="right a_ft_right">¥{{item.price}}</view>
+						</view>
+					</view>
+				</navigator>
+			</block>
+		</van-tab>
+
+
+		<van-tab title="抢单中心" name="b">
+			<block wx:for="{{order_center}}" wx:key="*this">
+				<navigator url="../todos_center/todos_center?id={{item._id}}&distence={{item.dis}}">
+					<view class='order_card'>
+						<view class="card_hd">
+							<view class="left a_hd_left">送达时间：</view>
+							<view class="right a_hd_right">{{order_status[item.order_status]}}</view>
+						</view>
+						<view style="clear:both"></view>
+						<view class="card_bd">
+							<view class="left b_bd_left">
+								<view class="b-mar">{{item.delivery_time}}</view>
+								<view class="b-mar">{{item.num}}件</view>
+							</view>
+							<view class="right b_bd_right">
+								<image class="b-icon-1 left" src="../../images/地址.png"></image>
+								<view class="distence left">{{item.dis}}</view>
+							</view>
+						</view>
+						<view class="card_ft">
+							<view class="left a_ft_left">
+								<image src="../../images/时间.png" class="a_ft_left_img"></image>
+								<view class="a_ft_left_time">{{item.order_time}}</view>
+							</view>
+							<view class="right a_ft_right">¥{{item.price}}</view>
+						</view>
+					</view>
+				</navigator>
+			</block>
+		</van-tab>
+
+
+		<van-tab title="我接的单" name="c">
+			<block wx:for="{{pick_order}}" wx:key="*this">
+				<navigator url="../rider_order/rider_order?id={{item._id}}">
+					<view class='order_card'>
+						<view class="card_hd">
+							<view class="left a_hd_left">取件短信：</view>
+							<view class="right a_hd_right">{{order_status[item.order_status]}}</view>
+						</view>
+						<view style="clear:both"></view>
+						<view class="card_bd">
+							<view class="left a_bd_left">
+								<text class="a_text">{{item.message[0].data}}</text>
+							</view>
+							<view class="right a_bd_right">{{item.num}}件</view>
+						</view>
+						<view class="card_ft">
+							<view class="left a_ft_left">
+								<image src="../../images/时间.png" class="a_ft_left_img"></image>
+								<view class="a_ft_left_time">{{item.order_time}}</view>
+							</view>
+							<view class="right a_ft_right">¥{{item.price}}</view>
+						</view>
+					</view>
+				</navigator>
+			</block>
+		</van-tab>
+	</van-tabs>
+</view>

@@ -1,0 +1,13 @@
+/* miniprogram/pages/about/about.wxss */
+page{
+  background: #efefef;
+}
+.page_hd{
+  text-align: center;
+}
+.title{
+  font-size: 20px;
+}
+.version{
+
+}

@@ -1,0 +1,41 @@
+/* miniprogram/pages/my/my.wxss */
+page{
+  background-color:#efefef;
+}
+.page_bd{
+  width: 96%;
+  margin: 0 auto;
+}
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 25rpx 0rpx;
+}
+
+.userinfo-avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+}
+
+.mar-top{
+  margin-top: 20rpx;
+}
+.contact{
+  border: none;
+  height: 48rpx;
+  line-height: 48rpx;
+  background-color: white;
+  font-size: 16px;
+  padding-left: 0;
+  text-align: left;
+}
+.contact::after{
+  border: none;
+}

@@ -1,0 +1,36 @@
+/* pages/login/login.wxss */
+page{
+    background-color: #F2F2F2;
+}
+.page_hd {
+    width: 100%;
+    height: 400rpx;
+    margin:0 auto;
+    text-align: center;  
+}
+ 
+.image {
+    width: 200rpx;
+    height: 200rpx;
+    margin: 100rpx auto;
+    border-radius: 50%;
+    overflow:hidden;
+}
+ 
+.page_bd {
+    margin-top: 50rpx;
+    margin-left: 50rpx;
+    margin-bottom: 90rpx;
+}
+ 
+.page_bd text {
+    display: block;
+    color: #9d9d9d;
+    margin-top: 40rpx;
+}
+ 
+.bottom {
+    border-radius: 80rpx;
+    margin: 70rpx 50rpx;
+    font-size: 35rpx;
+}

@@ -1,0 +1,90 @@
+<!--index.wxml-->
+<view class="page">
+	<view class="page_hd">
+    <!-- 位置定位 -->
+		<view class="address">
+			<image class="address_icon" src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/address2.png" bindtap='onChangeAddress'></image>
+			<view class='address_text' bindtap='onChangeAddress'>
+				{{current_location}}
+			</view>
+			<!-- <view style="clear:both;height:0;"></view> -->
+			<image class="address_icon2" src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/down-white.png"></image>
+			<image class="address_icon3" src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/我的.png" bindtap="goMy"></image>
+		</view>
+    <!-- 通告栏 -->
+		<van-notice-bar mode="closeable" text="温馨提示：服务时间为8:00-21:00，每个订单最多可填四件，两件9.5折、三件9折、四件8折" speed="30" />
+	</view>
+	<view class="page_bd">
+    <!-- 标签栏 -->
+		<van-tabs bind:click="onClick" color="#fff">
+			<van-tab title="代取快递" name="a" title-style="font-size:16px;color: rgba(0, 0, 0, 0.4);">
+        <!-- 取件码列表 -->
+				<view class="weui-cells weui-cells_after-title mar-top">
+					<block wx:for="{{message}}" wx:key="*this">
+						<view class="weui-cell message_color">
+							<view class="weui-cell__hd">取货码{{index+1}}：</view>
+							<view class="weui-cell__bd">{{item.data}}</view>
+							<image src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/删除.png" class="weui-cell__ft delete" data-id="{{index}}" bindtap="deleteValue"></image>
+						</view>
+					</block>
+				</view>
+        <!-- 取件码填写 -->
+				<view class="weui-cells mar-top">
+					<view class="weui-cell textarea-wrp">
+						<textarea name="textarea" placeholder="请粘贴整段取件码短信" value="{{contentStr}}" adjust-position auto-height bindinput="getValue" />
+						</view>
+          <view class="Paste">
+            <image src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/粘贴.png" class="text_img" bindtap="pasteValue"></image>
+            <image src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/清空.png" class="text_img" bindtap="clearValue"></image>
+            <image src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/确定.png" class="text_img" bindtap="addValue"></image>       
+          </view>
+        </view>
+      </van-tab>
+      <!-- <van-tab title="代购商品" name="b">内容 2</van-tab> -->
+    </van-tabs>
+    <form bindsubmit="formSubmit">
+      <view class="weui-cells weui-cells_after-title mar-top">
+        <view class="weui-cell" bindtap="chooseAddress">
+          <view class="weui-cell__hd">
+            <image src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/地址-蓝.png" style="margin-right: 16px;vertical-align: middle;width:25px; height: 25px;"></image>
+          </view>
+          <view class="weui-cell__bd"></view>
+          <view class="weui-cell__ft weui-cell__ft_in-access">
+            <text>{{chooseAddress}}\n{{chooseContact}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title mar-top">
+        <view class="weui-cell">
+          <view class="weui-cell__bd">备注：</view>
+          <view class="weui-cell__ft" style="width:70%">
+            <input name="input" class="weui-input" placeholder="不超过15个字" maxlength="15" />
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd" style="width:30%">送达时间：</view>
+          <view class="weui-cell__ft weui-cell__ft_in-access" style="width:70%">
+            <picker mode="time" value="{{startTime}}" start="08:00" end="21:00" bindchange="bindTimeChange_start" class="">
+              <view>{{startTime}}</view>
+            </picker>
+            <picker mode="time" value="{{endTime}}" start="08:00" end="21:00" bindchange="bindTimeChange_end" class="">
+              <view>{{endTime}}</view>
+            </picker>
+          </view>
+        </view>
+        <view class="weui-cell">
+          <view class="weui-cell__bd">价格：</view>
+          <picker bindchange="bindPickerChange" value="{{price_num}}" range="{{price}}">
+            <view class="weui-cell__ft weui-cell__ft_in-access">
+              {{price[price_num]}}元
+            </view>
+          </picker>
+        </view>
+      </view>
+      <view class="index-botton">
+        <view class="price">总价：{{totalPrice}} 元</view>
+        <button class="sub" formType="submit">提交订单</button>
+      </view>
+    </form>  
+  </view>	
+</view>

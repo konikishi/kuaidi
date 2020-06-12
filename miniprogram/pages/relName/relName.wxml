@@ -1,0 +1,56 @@
+<view class="shiming">实名认证
+  <text style="font-size:22rpx">（请上传真实的个人信息，认证通过后将无法修改）</text>
+</view>
+<form bindsubmit="submit">
+  <view class="xing">姓名
+    <input placeholder='请输入真实姓名' class="in placeholder" name="Name" value="{{Name}}" bindblur="Name" />
+  </view>
+  <view class="reg" hidden="{{nameReg}}">*请输入正确的姓名</view>
+  <view class="xing">身份证号
+    <input placeholder='请输入身份证号' class="in placeholder" name='Id' value="{{Id}}" bindblur="Id" type="idcard" />
+  </view>
+  <view class="reg" hidden="{{idReg}}">*请输入正确的身份证号码</view>
+  <view class="xing">手机号
+    <input placeholder='请输入手机号码' class="in placeholder" name='Tel' value="{{Tel}}" bindblur="Tel" type="number" />
+  </view>
+  <view class="reg" hidden="{{telReg}}">*请输入正确的手机号码</view>
+
+  <view class="shenfen">
+    <view class="shenfen1">身份证正面照</view>
+    <text style="font-size:26rpx;color:#d9002f;">*请使用手机横向拍摄以保证图片正常显示</text>
+    <!-- 如果上传了图片 -->
+    <block wx:if="{{idc_face.length!=0}}">
+      <view class="cl_img">
+        <image src="{{idc_face}}" mode="aspectFit" bindtap="chooseImage_face" style="width:600rpx;height:350rpx"></image>
+        <!-- 打码 -->
+        <view class="hh">此图片仅供审核用</view>
+      </view>
+    </block>
+    <!-- 否则显示默认图片 -->
+    <block wx:else>
+      <view class="cl_img">
+        <image src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/upload.png" bindtap="chooseImage_face" style="width:100rpx;height:100rpx;margin-top:125rpx"></image>
+      </view>
+    </block>
+  </view>
+
+  <view class="shenfen">
+    <view class="shenfen1">身份证反面照</view>
+    <text style="font-size:26rpx;color:#d9002f;">*请使用手机横向拍摄以保证图片正常显示</text>
+    <!-- 如果上传了图片 -->
+    <block wx:if="{{idc_back.length!=0}}">
+      <view class="cl_img">
+        <image src="{{idc_back}}" mode="aspectFit" bindtap="chooseImage_back" style="width:600rpx;height:350rpx"></image>
+        <view class="hh">此图片仅供审核用</view>
+      </view>
+    </block>
+    <!-- 否则显示默认图片 -->
+    <block wx:else>
+      <view class="cl_img">
+        <image src="cloud://wx-xcx-001.7778-wx-xcx-001-1300000120/icon/upload.png" bindtap="chooseImage_back" style="width:100rpx;height:100rpx;margin-top:125rpx"></image>
+      </view>
+    </block>
+  </view>
+  <view style="padding-top:30rpx;font-size:30rpx;text-align:center;color:#cccccc">————请确认以上信息准确无误————</view>
+  <button type="" form-type="submit" hover-class='button-hover' class='su'>提交审核</button>
+</form>
